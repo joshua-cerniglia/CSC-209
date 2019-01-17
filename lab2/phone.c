@@ -12,7 +12,7 @@ int main(int argc, char **argv) {
     printf("%c\n", phone[part2]);
   }
   else{
-    printf("ERROR");
+    printf("ERROR\n");
   }
   return 0;
 }
