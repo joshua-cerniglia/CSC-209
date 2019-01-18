@@ -4,7 +4,8 @@
 int main(int argc, char **argv) {
   char phone[11];
   int part2 = 0;
-  scanf("%s %d", phone, &part2);
+  scanf("%s", phone);
+  scanf("%d", &part2);
   if (part2 == -1){
     printf("%s\n", phone);
   }
