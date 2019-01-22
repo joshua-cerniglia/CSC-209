@@ -15,7 +15,12 @@ int main(int argc, char **argv) {
     }
 
     int size = strlen(argv[1]);
-    
-    // TODO: complete the main function
+
+    char *state;
+    state = argv[1];
+
+    int num_state = strtol(argv[2], NULL, 10);
+
+    return 0;
 
 }
