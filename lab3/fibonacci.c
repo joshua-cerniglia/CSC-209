@@ -16,16 +16,25 @@
 
 /* Write your solution here */
 
+void fib( int **fib_sequence, int count){
+  *fib_sequence = malloc(count*sizeof(int));
+  fib_sequence[0] = 0;
+  fib_sequence[1] = 1;
+  // for (int i = 2; i < count; i++) {
+  //     *fib_sequence[i] = *fib_sequence[i - 1] + *fib_sequence[i - 2];
+  // }
+}
 
 int main(int argc, char **argv) {
     /* do not change this main function */
     int count = strtol(argv[1], NULL, 10);
+    printf("%d ", count);
     int *fib_sequence;
 
     fib(&fib_sequence, count);
-    for (int i = 0; i < count; i++) {
-        printf("%d ", fib_sequence[i]);
-    }
+    // for (int i = 0; i < count; i++) {
+    //     printf("%d ", fib_sequence[i]);
+    // }
     free(fib_sequence);
     return 0;
 }
