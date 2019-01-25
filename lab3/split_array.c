@@ -9,13 +9,15 @@
    Do not allocate any more memory than necessary.
 */
 int **split_array(const int *s, int length) {
-  int result[2][length];
-  result = malloc(2 * length * sizeof(int));
+  int **result;
+  result = malloc(2 * sizeof(int *));
+  result[0] = malloc(length * sizeof(int));
+  result[1] = malloc(length * sizeof(int));
   int num_evens = 0;
   int num_odds = 0;
   for (int i = 0; i < length; i++){
-    if (s[i] % 2 == 0){
-      result[0][num_evens] = s[i];
+    if (i % 2 == 0){
+      result[1][num_evens] = s[i];
       num_evens++;
     }
     else{
@@ -23,7 +25,7 @@ int **split_array(const int *s, int length) {
       num_odds++;
     }
   }
-  return &result;
+  return result;
 
 }
 
