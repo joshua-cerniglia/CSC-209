@@ -11,17 +11,17 @@
 int **split_array(const int *s, int length) {
   int **result;
   result = malloc(2 * sizeof(int *));
-  result[0] = malloc(length * sizeof(int));
-  result[1] = malloc(length * sizeof(int));
+  result[0] = malloc((length+1)/2 * sizeof(int));
+  result[1] = malloc(length/2 * sizeof(int));
   int num_evens = 0;
   int num_odds = 0;
   for (int i = 0; i < length; i++){
     if (i % 2 == 0){
-      result[1][num_evens] = s[i];
+      result[0][num_evens] = s[i];
       num_evens++;
     }
     else{
-      result[0][num_odds] = s[i];
+      result[1][num_odds] = s[i];
       num_odds++;
     }
   }
@@ -37,7 +37,7 @@ int **split_array(const int *s, int length) {
 
 int *build_array(char **strs, int size) {
   int *full_array;
-  full_array = malloc(size * sizeof(char));
+  full_array = malloc(size * sizeof(int));
   for (int i = 0; i < size; i++){
     full_array[i]= strtol(strs[i+1], NULL, 10);
   }
