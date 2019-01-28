@@ -21,6 +21,11 @@ int main(int argc, char **argv) {
 
     int num_state = strtol(argv[2], NULL, 10);
 
+    for(int i = 0; i<num_state; i++){
+      print_state(state, size);
+      update_state(state, size);
+    }
+
     return 0;
 
 }
