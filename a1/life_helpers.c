@@ -10,20 +10,17 @@ void print_state(char *state, int size){
 }
 
 void update_state(char *state, int size){
-
+  char temp_state[size];
   for(int i = 1; i < (size - 1); i++){
-    if(state[i-1] == state[i+1]){
-      state[i] = '.';
+    if(state[i-1] != state[i+1]){
+      temp_state[i] = 'X';
     }
     else{
-      state[i] = 'X';
+      temp_state[i] = '.';
     }
   }
-
-}
-
-int main(int argc, char **argv) {
-
-  return 0;
+  for(int i = 1; i < (size - 1); i++){
+    state[i] = temp_state[i];
+  }
 
 }
