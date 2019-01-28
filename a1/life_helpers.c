@@ -3,7 +3,10 @@
 #include <string.h>
 
 void print_state(char *state, int size){
-  printf("%s\n", state);
+  for (int i = 0; i<size; i++){
+    printf("%c", state[i]);
+  }
+  printf("\n");
 }
 
 void update_state(char *state, int size){
