@@ -34,12 +34,12 @@ int main(int argc, char **argv) {
     unsigned long hex = 0;
     trace = fopen(argv[2], "r");
     while(fscanf(trace, "%c %lx\n", &name, &hex) == 1){
-      printf("%c,%#lx\n", name, hex);
+      printf("%c %#lx\n", name, hex);
       if(hex == start_marker){
         bool = 1;
       }
       if(bool == 1){
-        printf("%c,%#lx\n", name, hex);
+        printf("%c %#lx\n", name, hex);
       }
       if(hex == end_marker){
         bool = 0;
