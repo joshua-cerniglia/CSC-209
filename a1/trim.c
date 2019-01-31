@@ -36,6 +36,7 @@ int main(int argc, char **argv) {
     unsigned long hex = 0;
     trace = fopen(argv[2], "r");
     while(fscanf(trace, "%c %lx", &name, &hex) == 1){
+      printf("hi");
       if(hex == start_marker){
         bool = 1;
       }
