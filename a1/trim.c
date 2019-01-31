@@ -32,7 +32,7 @@ int main(int argc, char **argv) {
     int bool = 0;
     char name = 'F';
     unsigned long hex = 0;
-    int loop = 1;
+    int loop = 3;
     int useless = 0;
     trace = fopen(argv[1], "r");
     while(loop == 3){
