@@ -35,9 +35,6 @@ int main(int argc, char **argv) {
     int loop = 1;
     int useless = 0;
     trace = fopen(argv[1], "r");
-    if(trace == NULL){
-      printf("hi");
-    }
     while(loop == 1){
       loop = fscanf(trace, " %c %lx,%d\n", &name, &hex, &useless);
       if(hex == end_marker){
