@@ -11,7 +11,7 @@
 #define STACK_START 0xfff000000
 
 int main(int argc, char **argv) {
-    
+
     FILE *fp = NULL;
 
     if(argc == 1) {
@@ -29,25 +29,60 @@ int main(int argc, char **argv) {
     }
 
     /* Complete the implementation */
+    int instr = 0;
+    int mods = 0;
+    int loads = 0;
+    int stores = 0;
+    int globs = 0;
+    int heap = 0;
+    int stack = 0;
+    char name = 'F';
+    unsigned long hex = 0;
+    int loop = 1;
+    int useless = 0;
+    while(loop == 1){
+      loop = fscanf(fp, " %c %lx,%d\n", &name, &hex, &useless);
+      if(name == 'I'){
+        instr++;
+      }
+      else if(name == 'M'){
+        mods++;
+      }
+      else if(name == 'L'){
+        loads++;
+      }
+      else if(name == 'S'){
+        stores++;
+      }
+      if (hex >= GLOBALS_START && hex <= GLOBALS_END){
+        globs++;
+      }
+      else if (hex >= HEAP_START && hex <= HEAP_END){
+        heap++;
+      }
+      else if (hex >= STACK_START){
+        stack++;
+      }
+    }
+    fclose(fp);
 
-
-    /* Use these print statements to print the ouput. It is important that 
+    /* Use these print statements to print the ouput. It is important that
      * the output match precisely for testing purposes.
      * Fill in the relevant variables in each print statement.
-     * The print statements are commented out so that the program compiles.  
+     * The print statements are commented out so that the program compiles.
      * Uncomment them as you get each piece working.
      */
-    /*
+
     printf("Reference Counts by Type:\n");
-    printf("    Instructions: %d\n", );
-    printf("    Modifications: %d\n", );
-    printf("    Loads: %d\n", );
-    printf("    Stores: %d\n", );
+    printf("    Instructions: %d\n", instr);
+    printf("    Modifications: %d\n", mods);
+    printf("    Loads: %d\n", loads);
+    printf("    Stores: %d\n", stores);
     printf("Data Reference Counts by Location:\n");
-    printf("    Globals: %d\n", );
-    printf("    Heap: %d\n", );
-    printf("    Stack: %d\n", );
-    */
+    printf("    Globals: %d\n", globs);
+    printf("    Heap: %d\n", heap);
+    printf("    Stack: %d\n", stack);
+
 
     return 0;
 }
