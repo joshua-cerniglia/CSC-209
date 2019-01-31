@@ -40,7 +40,6 @@ int main(int argc, char **argv) {
     unsigned long hex = 0;
     int loop = 2;
     while(loop == 2){
-      loop = fscanf(fp, "%c,%lx\n", &name, &hex);
       if(name == 'I'){
         instr++;
       }
@@ -53,15 +52,16 @@ int main(int argc, char **argv) {
       else if(name == 'S'){
         stores++;
       }
-      if (hex >= GLOBALS_START && hex <= GLOBALS_END){
+      if (hex >= GLOBALS_START && hex <= GLOBALS_END && name != 'I'){
         globs++;
       }
-      else if (hex >= HEAP_START && hex <= HEAP_END){
+      else if (hex >= HEAP_START && hex <= HEAP_END && name != 'I'){
         heap++;
       }
-      else if (hex >= STACK_START){
+      else if (hex >= STACK_START && name != 'I'){
         stack++;
       }
+      loop = fscanf(fp, "%c,%lx\n", &name, &hex);
     }
     fclose(fp);
 
