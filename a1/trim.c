@@ -22,7 +22,7 @@ int main(int argc, char **argv) {
     unsigned long start_marker = 0;
     unsigned long end_marker = 0;
     marker = fopen(argv[2], "r");
-    fscanf(marker, "%lx,%lx", &start_marker, &end_marker);
+    fscanf(marker, "%lx, %lx", &start_marker, &end_marker);
     fclose(marker);
     printf("%#lx,%#lx\n", start_marker, end_marker);
 
