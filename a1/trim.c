@@ -24,7 +24,6 @@ int main(int argc, char **argv) {
     marker = fopen(argv[2], "r");
     fscanf(marker, "%lx %lx", &start_marker, &end_marker);
     fclose(marker);
-    printf("%#lx,%#lx\n", start_marker, end_marker);
 
     /* For printing output, use this exact formatting string where the
      * first conversion is for the type of memory reference, and the second
@@ -35,7 +34,7 @@ int main(int argc, char **argv) {
     char name = 'F';
     unsigned long hex = 0;
     trace = fopen(argv[2], "r");
-    while(fscanf(trace, "%c %lx", &name, &hex) == 1){
+    while(fscanf(trace, "%c %lx\n", &name, &hex) == 1){
       printf("hi");
       if(hex == start_marker){
         bool = 1;
