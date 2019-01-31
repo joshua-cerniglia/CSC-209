@@ -38,8 +38,8 @@ int main(int argc, char **argv) {
     int stack = 0;
     char name = 'F';
     unsigned long hex = 0;
-    int loop = 1;
-    while(loop == 1){
+    int loop = 2;
+    while(loop == 2){
       loop = fscanf(fp, "%c,%lx\n", &name, &hex);
       if(name == 'I'){
         instr++;
