@@ -32,14 +32,14 @@ int main(int argc, char **argv) {
     int bool = 0;
     char name = 'F';
     unsigned long hex = 0;
-    if(trace == NULL){
-      printf("hi");
-    }
+    int loop = 1;
     trace = fopen(argv[1], "r");
     if(trace == NULL){
       printf("hi");
     }
-    while(fscanf(trace, "%c %lx\n", &name, &hex) == 1){
+    while(loop == 1){
+      loop = fscanf(trace, "%c %lx\n", &name, &hex)
+      printf("%d\n", loop);
       printf("%c %#lx\n", name, hex);
       if(hex == start_marker){
         bool = 1;
