@@ -33,19 +33,20 @@ int main(int argc, char **argv) {
     char name = 'F';
     unsigned long hex = 0;
     int loop = 1;
+    int useless = 0;
     trace = fopen(argv[1], "r");
     if(trace == NULL){
       printf("hi");
     }
     while(loop == 1){
-      loop = fscanf(trace, "%c %lx\n", &name, &hex)
+      loop = fscanf(trace, " %c %lx,%d\n", &name, &hex, &useless)
       printf("%d\n", loop);
       printf("%c %#lx\n", name, hex);
       if(hex == start_marker){
         bool = 1;
       }
       if(bool == 1){
-        printf("%c %#lx\n", name, hex);
+        printf("%c,%#lx\n", name, hex);
       }
       if(hex == end_marker){
         bool = 0;
