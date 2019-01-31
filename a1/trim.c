@@ -9,6 +9,9 @@
 
 int main(int argc, char **argv) {
 
+    FILE *marker;
+    FILE *trace;
+
     if(argc != 3) {
          fprintf(stderr, "Usage: %s tracefile markerfile\n", argv[0]);
          exit(1);
@@ -18,8 +21,9 @@ int main(int argc, char **argv) {
     // unsigned long start_marker, end_marker;
     unsigned long start_marker = 0;
     unsigned long end_marker = 0;
-    fscanf(argv[2], "%lu,%lu", start_marker, end_marker);
-
+    marker = fopen(argv[2], "r");
+    fscanf(marker, "%lu,%lu", &start_marker, &end_marker);
+    fclose(marker);
 
     /* For printing output, use this exact formatting string where the
      * first conversion is for the type of memory reference, and the second
@@ -29,7 +33,8 @@ int main(int argc, char **argv) {
     int bool = 0;
     char name = 'F';
     unsigned long hex = 0;
-    while(fscanf(argv[1], "%c,%lu", name, hex) == 1){
+    trace = fopen(argv[2], "r");
+    while(fscanf(trace, "%c,%lu", &name, &hex) == 1){
       if(hex == start_marker){
         bool = 1;
       }
@@ -39,6 +44,7 @@ int main(int argc, char **argv) {
       if(hex == end_marker){
         bool = 0;
       }
+      fclose(trace);
     }
     return 0;
 }
