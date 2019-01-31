@@ -21,6 +21,9 @@ int main(int argc, char **argv) {
     // unsigned long start_marker, end_marker;
     unsigned long start_marker = 0;
     unsigned long end_marker = 0;
+    if(marker == NULL){
+      printf("rip");
+    }
     marker = fopen(argv[2], "r");
     if(marker == NULL){
       printf("RIP");
