@@ -32,7 +32,7 @@ int main(int argc, char **argv) {
     int bool = 0;
     char name = 'F';
     unsigned long hex = 0;
-    trace = fopen(argv[2], "r");
+    trace = fopen(argv[1], "r");
     while(fscanf(trace, "%c %lx\n", &name, &hex) == 1){
       printf("%c %#lx\n", name, hex);
       if(hex == start_marker){
