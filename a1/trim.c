@@ -8,9 +8,9 @@
  */
 
 int main(int argc, char **argv) {
-
-    FILE *marker;
-    FILE *trace;
+    printf("Hi");
+    FILE *marker = NULL;
+    FILE *trace = NULL;
 
     if(argc != 3) {
          fprintf(stderr, "Usage: %s tracefile markerfile\n", argv[0]);
@@ -24,6 +24,7 @@ int main(int argc, char **argv) {
     marker = fopen(argv[2], "r");
     fscanf(marker, "%lu,%lu", &start_marker, &end_marker);
     fclose(marker);
+    printf("%lu%lu\n", start_marker, end_marker);
 
     /* For printing output, use this exact formatting string where the
      * first conversion is for the type of memory reference, and the second
