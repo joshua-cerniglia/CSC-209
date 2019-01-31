@@ -39,17 +39,15 @@ int main(int argc, char **argv) {
       printf("hi");
     }
     while(loop == 1){
-      loop = fscanf(trace, " %c %lx,%d\n", &name, &hex, &useless)
-      printf("%d\n", loop);
-      printf("%c %#lx\n", name, hex);
-      if(hex == start_marker){
-        bool = 1;
+      loop = fscanf(trace, " %c %lx,%d\n", &name, &hex, &useless);
+      if(hex == end_marker){
+        bool = 0;
       }
       if(bool == 1){
         printf("%c,%#lx\n", name, hex);
       }
-      if(hex == end_marker){
-        bool = 0;
+      if(hex == start_marker){
+        bool = 1;
       }
     }
     fclose(trace);
