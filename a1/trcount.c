@@ -39,9 +39,8 @@ int main(int argc, char **argv) {
     char name = 'F';
     unsigned long hex = 0;
     int loop = 1;
-    int useless = 0;
     while(loop == 1){
-      loop = fscanf(fp, " %c %lx,%d\n", &name, &hex, &useless);
+      loop = fscanf(fp, "%c,%lx\n", &name, &hex);
       if(name == 'I'){
         instr++;
       }
