@@ -46,7 +46,7 @@ int main(int argc, char **argv) {
       if(hex == end_marker){
         bool = 0;
       }
-      fclose(trace);
     }
+    fclose(trace);
     return 0;
 }
