@@ -8,7 +8,6 @@
  */
 
 int main(int argc, char **argv) {
-    printf("Hi");
     FILE *marker = NULL;
     FILE *trace = NULL;
 
@@ -35,7 +34,7 @@ int main(int argc, char **argv) {
     unsigned long hex = 0;
     trace = fopen(argv[2], "r");
     while(fscanf(trace, "%c %lx\n", &name, &hex) == 1){
-      printf("hi");
+      printf("%c,%#lx\n", name, hex);
       if(hex == start_marker){
         bool = 1;
       }
