@@ -36,7 +36,6 @@ int main(int argc, char **argv) {
     int useless = 0;
     trace = fopen(argv[1], "r");
     while(loop == 3){
-      loop = fscanf(trace, " %c %lx,%d\n", &name, &hex, &useless);
       if(hex == end_marker){
         bool = 0;
       }
@@ -46,6 +45,7 @@ int main(int argc, char **argv) {
       if(hex == start_marker){
         bool = 1;
       }
+      loop = fscanf(trace, " %c %lx,%d\n", &name, &hex, &useless);
     }
     fclose(trace);
     return 0;
